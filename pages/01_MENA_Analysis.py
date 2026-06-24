@@ -1,3 +1,4 @@
+
 import streamlit as st
 import pandas as pd
 import altair as alt
@@ -877,13 +878,7 @@ with tab_ranking:
             if "(%)" in col:
                 table_display[col] = table_display[col].round(1)
  
-        styled = table_display.style
-        for col, cmap in gradient_cols.items():
-            if col in table_display.columns:
-                styled = styled.background_gradient(subset=[col], cmap=cmap)
-        styled = styled.background_gradient(subset=["Combined rank"], cmap="RdYlGn_r")
- 
-        st.dataframe(styled, use_container_width=True, hide_index=True)
+        st.dataframe(table_display, use_container_width=True, hide_index=True)
  
  
 # ───────────────────────────────────────────────────────────────
